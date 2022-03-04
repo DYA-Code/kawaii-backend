@@ -22,4 +22,13 @@ export class DbController {
     async getUsr() {
         return await this.dbService.getDb();
     }
+
+    // Auth a Users Informations
+    @Get('/auth/:id/:pw')
+    async searchUsr(@Param('id') reqId: any, @Param('pw') reqPw: any) {
+        const db = (await this.dbService.getDb()).map(x => x.usrId)
+        const db2 = (await this.dbService.getDb()).map(x => x.usrPw)
+        
+        if ( db.includes(reqId) && db2.includes(reqPw) ) { return true } else { return false }
+    }
 }
