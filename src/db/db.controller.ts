@@ -7,8 +7,8 @@ export class DbController {
 
     // Database' Main Page
     @Get()
-    async getUsrAll() {
-        return await 'Database Page';
+    getUsrAll() {
+        return 'Database Page';
     }
     
     // Create a User Account
